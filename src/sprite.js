@@ -21,7 +21,9 @@ class Sprite{
                 // Go to the next frame
                 this.frameIndex += 1;
             } else {
-                this.frameIndex = 0
+                setTimeout(() => {
+                    this.frameIndex = 0
+                }, 250);
             }
         }
     }

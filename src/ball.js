@@ -1,9 +1,9 @@
 class Ball {
-    constructor(x, y) {
+    constructor(x, y/*, speed*/) {
       this.color = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
       this.direction = Math.random() * Math.PI * 2;
       this.radius = 10;
-      this.speed = Math.random() * 3 + 10;
+      this.speed = Math.random() * 3 + 1;
       this.x = x;
       this.y = y;
     }
