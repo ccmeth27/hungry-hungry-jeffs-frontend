@@ -7,6 +7,7 @@
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/ball.js"></script>
     <script type="text/javascript" src="src/sprite.js"></script>
+    <script type="text/javascript" src="src/gameLoop.js"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
@@ -16,19 +17,27 @@
         <div class="col-md-6">
           <input id="startButton" class="btn btn-outline-primary btn-lg btn-block" type="button" value="Start Game" style="display: none;">
           <input id="restartButton" class="btn btn-outline-primary btn-lg btn-block" type="button" value="Play Again" style="display: none;">
-          <div class="row">
-            <div class="col align-self-start">
+          <div class="row justify-content-md-center">
+            <div class="col col-lg-4">
               <h5 id="timebar" class="btn btn-primary" style="display: none;">Time Left: 24 seconds</h5>
             </div>
-            <div class="col align-self-center">
+            <div class="col-md-auto">
               <h5 id="levelbar" class="btn btn-primary" style="display: none;">Level 1</h5>
             </div>
-            <div class="col align-self-end">
+            <div class="col col-lg-4">
               <h5 id="scorebar" class="btn btn-primary" style="display: none;">Score: 0</h5>
             </div>
           </div>
           <div id="container">
-            <canvas id="canvas" width='600' height="600" style="display: none"></canvas>
+            <canvas id="canvas-lv-1" width='600' height="600" style="display: none"></canvas>
+            <canvas id="canvas-lv-2" width='600' height="600" style="display: none"></canvas>
+            <canvas id="canvas-lv-3" width='600' height="600" style="display: none"></canvas>
+            <canvas id="canvas-lv-4" width='600' height="600" style="display: none"></canvas>
+            <canvas id="canvas-lv-5" width='600' height="600" style="display: none"></canvas>
+            <canvas id="canvas-lv-6" width='600' height="600" style="display: none"></canvas>
+            <canvas id="canvas-lv-7" width='600' height="600" style="display: none"></canvas>
+            <canvas id="canvas-lv-8" width='600' height="600" style="display: none"></canvas>
+            <canvas id="canvas-lv-9" width='600' height="600" style="display: none"></canvas>
           </div>
           <br>
           <div class="card border-info mb-3" style="max-width: '740';">
@@ -36,8 +45,15 @@
               <h5>Gameplay:</h5>
             </div>
             <div class="card-body">
-              <ul>
-
+              <ul id = "rules">
+                <!-- <p>> Input a username and hit Enter</p>
+                <p>> Click within the game window to activate controls</p>
+                <p>> Use arrow keys and / or your cursor to move</p>
+                <p>> Press 'ESC' / Escape to leave cursor control</p>
+                <p>> Press 'F' to change player sprite</p>
+                <p>> Increase your score by surviving and eating cookies</p>
+                <p>> Start with 3 hitpoints, every 10 cookies eaten = 1 hitpoint</p>
+                <p>> DODGE THE VEGETABLES!</p> -->
               </ul>
             </div>
           </div>
