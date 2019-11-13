@@ -1,5 +1,6 @@
 * { margin:0; padding:0}
 
+
 canvas {
   display: block;
   margin: 0 auto;
@@ -17,8 +18,9 @@ canvas {
 }
 
 .game-title {
-  font-family: 'Monoton', cursive;
-  color: #0066ff;
+  font-family: 'Press Start 2P', cursive;
+  align-content: center;
+  color: #0381caf5;
 }
 
 .card-header {
@@ -30,8 +32,20 @@ canvas {
 }
 
 body {
-  background-color: #b3f0ff
+  background-color: #333
 }
+
+.form-group {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  border: 1px solid black;
+}
+
+.dropdown {
+  padding: 1em;
+}
+
 
 input::placeholder {
   text-align: center;

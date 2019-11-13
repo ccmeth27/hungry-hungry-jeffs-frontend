@@ -1,3 +1,4 @@
+// const playerStatsBtn = document.getElementById("playerStatsButton")
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,8 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const timeBar = document.getElementById("timebar")
 
   const levelBar = document.getElementById("levelbar")
+  const playerStatsBtn = document.getElementById("playerStatsButton")
 
-
+  playerStatsBtn.addEventListener("click", function (e) {
+    console.log("button clicked")
+})
 
   form.addEventListener("submit", submitHandler)
 
