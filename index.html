@@ -7,25 +7,93 @@
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/ball.js"></script>
     <script type="text/javascript" src="src/sprite.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
   </head>
   <body>
-    <div class="username-div">
-      <form id="form" class="" action="" method="">
-        <input id="username" type="text" name="" placeholder="Username..."><br>
-        <input id="initials" type="text" name="" placeholder="3 initials..."><br>
-      </form><br>
-      <div class="box">
-        <a href="#" class="btn btn-white btn-animation-1">Toggle Sound</a> 
-      </div><br>
-      <div class="box">
-        <a href="#" class="btn btn-white btn-animation-1">Personal Stats</a> 
-      </div><br>
-      <div class="box">
-        <a href="#" class="btn btn-white btn-animation-1">Leaderboard</a> 
-      </div><br>
-    </div>
-    <div id="container">
-      <canvas></canvas>
-    </div>
+      <div class="row mt-5 ml-5">
+        <div class="col-md-6">
+          <input id="startButton" class="btn btn-outline-primary btn-lg btn-block" type="button" value="Start Game" style="display: none;">
+          <input id="restartButton" class="btn btn-outline-primary btn-lg btn-block" type="button" value="Play Again" style="display: none;">
+          <div class="row">
+            <div class="col align-self-start">
+              <h5 id="timebar" class="btn btn-primary" style="display: none;">Time Left: 24 seconds</h5>
+            </div>
+            <div class="col align-self-center">
+              <h5 id="levelbar" class="btn btn-primary" style="display: none;">Level 1</h5>
+            </div>
+            <div class="col align-self-end">
+              <h5 id="scorebar" class="btn btn-primary" style="display: none;">Score: 0</h5>
+            </div>
+          </div>
+          <div id="container">
+            <canvas id="canvas" width='600' height="600" style="display: none"></canvas>
+          </div>
+          <br>
+          <div class="card border-info mb-3" style="max-width: '740';">
+            <div class="card-header">
+              <h5>Gameplay:</h5>
+            </div>
+            <div class="card-body">
+              <ul>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div id="sidebar" class="">
+               <div class="item">
+                 <h1>
+                   <span class="game-title">Hungry-Hungry Jeffs!</span>
+                 </h1>
+               </div>
+               <p id="user-icon" class="item">
+                  <form id="form" action="" method="post">
+                      <input id="username" type="text" name="" class="form-control" placeholder="Username..."><br>
+                      <input id="initials" type="text" name="" class="form-control" placeholder="3 initials..."><br>
+                      <input type="submit" style="display:none"/>
+                  </form>
+               </p>
+               <br>
+               <button id="playerStatsButton" type="button" class="btn btn-outline-primary">Personal Stats</button>
+               <br>
+               <table id="playerStatsTable" class="table table-striped" style="display: none">
+                <thead>
+                    <tr>
+                      <th>Game</th>
+                      <th>Date</th>
+                      <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="playerStatsTableBody">
+                </tbody>
+              </table>
+              <br>
+              <button id="leaderboardButton" type="button" class="btn btn-outline-primary">Leaderboard</button>
+              <br>
+              <br>
+              <table id="leaderboardTable" class="table table-striped" style="display: none">
+              <thead>
+                  <tr>
+                      <th>Rank</th>
+                      <th>Player</th>
+                      <th>Score</th>
+                  </tr>
+              </thead>
+              <tbody id="leaderboardTableBody">
+              </tbody>
+              </table>
+              <br>
+              <br>
+               <div id="footer">
+                 
+               </div>
+            </div>
+          </div>
+        <div class="col-md-1">
+        </div>
+      </div>
   </body>
 </html>

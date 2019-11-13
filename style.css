@@ -1,6 +1,42 @@
-* { margin:0; padding:0; background-color: honeydew;}
+* { margin:0; padding:0}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid black;
+  width: 100%;
+  }
 
 
+#footer {
+  font-size: 75%;
+}
+
+.btn {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.game-title {
+  font-family: 'Monoton', cursive;
+  color: #0066ff;
+}
+
+.card-header {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.card-body {
+  /* instructions text  */
+}
+
+body {
+  background-color: #b3f0ff
+}
+
+input::placeholder {
+  text-align: center;
+}
+/* 
 #container {
   position: absolute;
   height: 600px;
@@ -8,10 +44,6 @@
   margin: 7vh;
   background-color: darkgray;
   border: 10px solid crimson;
-}
-
-input::placeholder {
-  text-align: center;
 }
 
 .username-div {
@@ -32,7 +64,7 @@ input::placeholder {
   box-sizing:border-box;
   font-family:"Lato",Sans-serif;
 /*   position:relative; */
-} */
+/* }
 
 .box{
   position:absolute;
@@ -104,4 +136,4 @@ input::placeholder {
     opacity:1;
     transform:translateY(0);
   }
-}
+} */ 
