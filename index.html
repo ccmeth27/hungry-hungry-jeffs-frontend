@@ -4,27 +4,29 @@
     <meta charset="utf-8">
     <title>Hungry-hungry Jeffos!</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/ball.js"></script>
     <script type="text/javascript" src="src/sprite.js"></script>
+    <script type="text/javascript" src="src/EventListener.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
   </head>
   <body>
       <div class="row mt-5 ml-5">
         <div class="col-md-6">
-          <input id="startButton" class="btn btn-outline-primary btn-lg btn-block" type="button" value="Start Game" style="display: none;">
+          <!-- <input id="startButton" class="btn btn-outline-primary btn-lg btn-block" type="button" value="Start Game" style="display: none;"> -->
           <input id="restartButton" class="btn btn-outline-primary btn-lg btn-block" type="button" value="Play Again" style="display: none;">
           <div class="row">
-            <div class="col align-self-start">
-              <h5 id="timebar" class="btn btn-primary" style="display: none;">Time Left: 24 seconds</h5>
+            <div class="col col-sm-5">
+              <h5 id="timebar" class="btn btn-danger" style="display: none;">Time Left: 24 seconds</h5>
             </div>
-            <div class="col align-self-center">
-              <h5 id="levelbar" class="btn btn-primary" style="display: none;">Level 1</h5>
+            <div class="col col-sm-3">
+              <h5 id="levelbar" class="btn btn-danger" style="display: none;">Level 1</h5>
             </div>
-            <div class="col align-self-end">
-              <h5 id="scorebar" class="btn btn-primary" style="display: none;">Score: 0</h5>
+            <div class="col col-sm-4">
+              <h5 id="scorebar" class="btn btn-danger" style="display: none;">Score: 0</h5>
             </div>
           </div>
           <div id="container">
@@ -42,22 +44,40 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div id="sidebar" class="">
                <div class="item">
-                 <h1>
+                 <h2>
                    <span class="game-title">Hungry-Hungry Jeffs!</span>
-                 </h1>
+                 </h2>
                </div>
                <p id="user-icon" class="item">
-                  <form id="form" action="" method="post">
-                      <input id="username" type="text" name="" class="form-control" placeholder="Username..."><br>
+                  <form id="form" action="" method="post" class="form-group">
+                      <!-- <input id="username" type="text" name="" class="form-control" placeholder="Username..."><br> -->
                       <input id="initials" type="text" name="" class="form-control" placeholder="3 initials..."><br>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Select Difficult</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                          <option selected>Choose Level...</option>
+                          <option class="dropdown-item" value="1">Level 1</option>
+                          <option class="dropdown-item" value="2">Level 2</option>
+                          <option class="dropdown-item" value="3">Level 3</option>
+                          <option class="dropdown-item" value="4">Level 4</option>
+                          <option class="dropdown-item" value="5">Level 5</option>
+                          <option class="dropdown-item" value="6">Level 6</option>
+                          <option class="dropdown-item" value="7">Level 7</option>
+                          <option class="dropdown-item" value="8">Level 8</option>
+                          <option class="dropdown-item" value="9">Level 9</option>
+                        </select>
+                      </div>
                       <input type="submit" style="display:none"/>
-                  </form>
+                    </form>
+                    <input id="startButton" class="btn btn-success btn-lg btn-block" type="button" value="Start Game" style="display: none;">
                </p>
                <br>
-               <button id="playerStatsButton" type="button" class="btn btn-outline-primary">Personal Stats</button>
+               <button id="playerStatsButton" type="button" class="btn btn-info">Personal Stats</button>
                <br>
                <table id="playerStatsTable" class="table table-striped" style="display: none">
                 <thead>
@@ -71,7 +91,7 @@
                 </tbody>
               </table>
               <br>
-              <button id="leaderboardButton" type="button" class="btn btn-outline-primary">Leaderboard</button>
+              <button id="leaderboardButton" type="button" class="btn btn-info">Leaderboard</button>
               <br>
               <br>
               <table id="leaderboardTable" class="table table-striped" style="display: none">
@@ -82,8 +102,8 @@
                       <th>Score</th>
                   </tr>
               </thead>
-              <tbody id="leaderboardTableBody">
-              </tbody>
+                <tbody id="leaderboardTableBody">
+                </tbody>
               </table>
               <br>
               <br>
@@ -92,8 +112,6 @@
                </div>
             </div>
           </div>
-        <div class="col-md-1">
-        </div>
       </div>
   </body>
 </html>
