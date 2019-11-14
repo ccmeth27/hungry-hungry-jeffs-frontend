@@ -2,6 +2,13 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  
+  // const carouselPrev = document.getElementsByClassName("carousel-control-prev")
+  // const carouselNext = document.getElementsByClassName("carousel-control-next")
+  // carouselNext.carousel("next")
+  // carouselPrev.carousel("prev")
+
+
   const form = document.getElementById("form")
   const canvas = document.getElementById("canvas-lv-1")
   const canvas2 = document.getElementById("canvas-lv-2")
@@ -10,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const startButton = document.getElementById("startButton")
   const scoreBar = document.getElementById("scorebar")
   const timeBar = document.getElementById("timebar")
+
+  const carousel = document.getElementById("carousel")
+  
 
   const levelBar = document.getElementById("levelbar")
   let level = levelBar.innerText.split(" ")[1]

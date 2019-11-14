@@ -2,6 +2,7 @@
 
 
 canvas {
+  background-color: rgb(133, 144, 155);
   display: block;
   margin: 0 auto;
   border: 1px solid black;
@@ -39,17 +40,68 @@ body {
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
-  border: 1px solid black;
+  padding-bottom: 1em;
+  /* border: 1px solid black; */
 }
 
 .dropdown {
   padding: 1em;
 }
 
+.carousel-item {
+  background-color: lightslategray;
+}
+
+
 
 input::placeholder {
   text-align: center;
 }
+
+/* #slider {
+	width: fit-content;
+	height: fit-content;
+  overflow: hidden;
+  animation-direction: normal;
+}
+
+.slide {
+	width: fit-content;
+	height: fit-content;
+	float: left;
+	position: relative;
+}
+
+#slide-holder {
+	width: fit-content;
+	position: fixed;
+	left: 0;
+	animation: scroller 10s infinite;
+}
+
+@keyframes scroller {
+  0% { transform: translateX(0); }
+  33% { transform: translateX(400px); }
+  66% { transform: translateX(400px*2); }
+  100% { transform: translateX(0); }
+}
+
+#slider {
+  margin: 0 auto;
+} */
+
+
+/* .slide:nth-child(1) {
+  background: #c69;
+}
+
+.slide:nth-child(2) {
+  background: wheat;
+}
+
+.slide:nth-child(3) {
+  background: #eee;
+} */
 /* 
 #container {
   position: absolute;
