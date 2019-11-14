@@ -16,7 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const levelBar = document.getElementById("levelbar")
   const info = document.getElementById("info")
 
+  const carousel = document.getElementById("myCarousel")
   let nextLevelButton = document.getElementById("nextLevel")
+  const nextLevelDiv = document.getElementById("nextLevelDiv")
 
 
   let jeffImage = new Image()
@@ -32,8 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let riceBallSprite = new Image()
   riceBallSprite.src = "images/riceball.png"
+  let basketBallSprite = new Image()
+  basketBallSprite.src = "images/basketball.png"
+  let edamameBallSprite = new Image()
+  edamameBallSprite.src = "images/edamame.png"
   let moneyBallSprite = new Image()
   moneyBallSprite.src = "images/moneyz.png"
+
 
 
 
@@ -64,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function submitHandler(e){
     e.preventDefault()
+    startButton.style.display = ''
+    form.style.display = 'none'
     let username = e.target[0].value
     let initials = e.target[1].value
     let profile_pic_path = e.target[2].value
@@ -73,9 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
       profile_pic_path: profile_pic_path
     }
     addPlayerToDB(userObj)
-    startButton.style.display = ''
-    statsButton.style.display = ''
-    form.style.display = 'none'
   }
 
   startButton.addEventListener("click", startHandler)
@@ -86,39 +92,29 @@ document.addEventListener('DOMContentLoaded', () => {
     scoreBar.style.display = ''
     timeBar.style.display = ''
     levelBar.style.display = ''
+    carousel.style.display = 'none'
     loop(timeBar, scoreBar, jeff, riceBallSprite, balls)
   }
 
-  statsButton.addEventListener("click", showStatsHandler)
-
-  function showStatsHandler(e){
-    if(statsShown === false){
-      statsShown = true
-      statsTable.style.display = ''
-    }else{
-      statsShown = false
-      statsTable.style.display = 'none'
-    }
-  }
 
   nextLevelButton.addEventListener("click", proceedToNextLevelHandler)
 
   function proceedToNextLevelHandler(e){
     balls = []
     canvas.style.display = ''
-    nextLevelButton.style.display = 'none'
+    nextLevelDiv.style.display = 'none'
     if(parseInt(levelBar.innerText.split(" ")[1]) === 1 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
       levelBar.innerText = "Level 2"
       for(let index = 0; index < 12; index ++) {
-        balls.push(new Ball(300, 300, 12))
+        balls.push(new Ball(300, 300, 8))
       }
-      loop(timeBar, scoreBar, jeffLebowski, moneyBallSprite, balls)
+      loop(timeBar, scoreBar, jeff, basketBallSprite, balls)
     }else if(parseInt(levelBar.innerText.split(" ")[1]) === 2 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
       levelBar.innerText = "Level 3"
       for(let index = 0; index < 12; index ++) {
-        balls.push(new Ball(300, 300, 12))
+        balls.push(new Ball(300, 300, 6))
       }
-      loop(timeBar, scoreBar, jeffBezos, moneyBallSprite, balls)
+      loop(timeBar, scoreBar, jeff, edamameBallSprite, balls)
     }else if(parseInt(levelBar.innerText.split(" ")[1]) === 3 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
       levelBar.innerText = "Level 4"
       for(let index = 0; index < 12; index ++) {

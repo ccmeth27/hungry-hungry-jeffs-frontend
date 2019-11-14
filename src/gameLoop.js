@@ -1,7 +1,7 @@
 function loop(timeBar, scoreBar, jeff, ballSprite, balls){
     let canvas = document.getElementById("canvas")
     let context = canvas.getContext("2d")
-    let nextLevelButton = document.getElementById("nextLevel")
+    let nextLevelDiv = document.getElementById("nextLevelDiv")
     let time_left = 24
     // change to 24
     let interval = setInterval(() => {
@@ -36,7 +36,7 @@ function loop(timeBar, scoreBar, jeff, ballSprite, balls){
     
     
     gameLoop()
-    if(status === "times up") return score
+    
     function gameLoop() {
         if(balls !== [] && time_left !== 0){
             window.requestAnimationFrame(gameLoop)
@@ -69,7 +69,7 @@ function loop(timeBar, scoreBar, jeff, ballSprite, balls){
         }else{
           context.clearRect(0, 0, canvas.width, canvas.height)
           canvas.style.display = 'none'
-          nextLevelButton.style.display = ''
+          nextLevelDiv.style.display = ''
           balls = []
 
           return
