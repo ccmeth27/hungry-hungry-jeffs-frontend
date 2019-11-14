@@ -5,6 +5,7 @@ function loop(timeBar, scoreBar, jeff, ballSprite, balls){
     let canvas = document.getElementById("canvas")
     let context = canvas.getContext("2d")
     let nextLevelDiv = document.getElementById("nextLevelDiv")
+    const info = document.getElementById("info")
     let time_left = 24
     // change to 24
     let interval = setInterval(() => {
@@ -37,7 +38,7 @@ function loop(timeBar, scoreBar, jeff, ballSprite, balls){
       })
 
     
-    
+    info.style.display = "none"
     gameLoop()
     
     function gameLoop() {
@@ -76,7 +77,8 @@ function loop(timeBar, scoreBar, jeff, ballSprite, balls){
           canvas.style.display = 'none'
           nextLevelDiv.style.display = ''
           balls = []
-
+          info.getElementsByTagName("h5")[0].remove()
+          info.style.display = ''
           return
         }
     }
