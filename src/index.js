@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let bezosImage = new Image()
   bezosImage.src = "images/bezos-animation.png"
   let goldblumImage = new Image()
-
+  goldblumImage.src
   let lebowskiImage = new Image()
   lebowskiImage.src = "images/lebowski-animation.png"
   
@@ -243,10 +243,11 @@ document.addEventListener('DOMContentLoaded', () => {
       canvas.style.display = 'none'
       let img = document.createElement("img")
       img.src = "images/you-lose.png"
-      let h1 = document.createElement("h1")
-      h1.innerText = `${scoreBar.innerText.split(" ")[1]} is not enough to proceed to next level`
+      let h4 = document.createElement("h4")
+      h4.innerText = `${scoreBar.innerText.split(" ")[1]} is not enough to proceed to next level`
+      h4.id = "loss"
       info.appendChild(img)
-      info.appendChild(h1)
+      info.appendChild(h4)
     }
 
 

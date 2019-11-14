@@ -14,6 +14,11 @@ canvas {
   font-size: 75%;
 }
 
+#loss {
+  font-family: 'Press Start 2P';
+  text-align: center;
+}
+
 .btn {
   font-family: 'Press Start 2P', cursive;
 }
