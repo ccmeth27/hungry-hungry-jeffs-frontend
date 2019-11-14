@@ -3,7 +3,7 @@ class Ball {
       this.color = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
       this.direction = Math.random() * Math.PI * 2;
       this.radius = 10;
-      this.speed = Math.random() * 3 + speed;
+      this.speed = speed;
       this.x = x;
       this.y = y;
     }

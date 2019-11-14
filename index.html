@@ -20,27 +20,21 @@
       <div class="row mt-5 ml-5">
         <div class="col-md-6">
           <input id="restartButton" class="btn btn-outline-primary btn-lg btn-block" type="button" value="Play Again" style="display: none;">
+          <!-- <input id="startButton" class="btn btn-outline-primary btn-lg btn-block" type="button" value="Start Game" style="display: none;"> -->
+          <!-- <input id="restartButton" class="btn btn-outline-primary btn-lg btn-block" type="button" value="Play Again" style="display: none;">  -->
           <div class="row">
             <div class="col col-sm-5">
-              <h5 id="timebar" class="btn btn-danger" style="display: none;">Time Left: 24 seconds</h5>
+              <h5 id="timebar" class="btn btn-danger" style="display: none;">Time Left: 24</h5>
             </div>
             <div class="col col-sm-3">
               <h5 id="levelbar" class="btn btn-danger" style="display: none;">Level 1</h5>
             </div>
-            <div class="col col-sm-4">
+            <div class="col col-sm-4 justify-content-end">
               <h5 id="scorebar" class="btn btn-danger" style="display: none;">Score: 0</h5>
             </div>
           </div>
           <div id="container">
-            <canvas id="canvas-lv-1" width='600' height="600" style="display: none"></canvas>
-            <canvas id="canvas-lv-2" width='600' height="600" style="display: none"></canvas>
-            <canvas id="canvas-lv-3" width='600' height="600" style="display: none"></canvas>
-            <canvas id="canvas-lv-4" width='600' height="600" style="display: none"></canvas>
-            <canvas id="canvas-lv-5" width='600' height="600" style="display: none"></canvas>
-            <canvas id="canvas-lv-6" width='600' height="600" style="display: none"></canvas>
-            <canvas id="canvas-lv-7" width='600' height="600" style="display: none"></canvas>
-            <canvas id="canvas-lv-8" width='600' height="600" style="display: none"></canvas>
-            <canvas id="canvas-lv-9" width='600' height="600" style="display: none"></canvas>
+            <canvas id="canvas" width='600' height="600" style="display: none"></canvas>
           </div>
           <br>
           <div class="card border-info mb-3" style="max-width: '740';">
@@ -76,8 +70,20 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
               </a>
+            <!-- <div class="card-body">
+              <ul id = "info">
+                <button id="nextLevel" type="button" class="btn btn-info" style="display: none;">See Results/Proceed to next Level</button>
+                 <p>> Input a username and hit Enter</p>
+                <p>> Click within the game window to activate controls</p>
+                <p>> Use arrow keys and / or your cursor to move</p>
+                <p>> Press 'ESC' / Escape to leave cursor control</p>
+                <p>> Press 'F' to change player sprite</p>
+                <p>> Increase your score by surviving and eating cookies</p>
+                <p>> Start with 3 hitpoints, every 10 cookies eaten = 1 hitpoint</p>
+                <p>> DODGE THE VEGETABLES!</p>  
+              </ul>
             </div>
-          </div>
+          </div> -->
           
         </div>
         <div class="col-md-6">
@@ -89,25 +95,9 @@
                </div>
                <p id="user-icon" class="item">
                   <form id="form" action="" method="post" class="form-group">
-                      <!-- <input id="username" type="text" name="" class="form-control" placeholder="Username..."><br> -->
+                      <input id="username" type="text" name="" class="form-control" placeholder="Username..."><br>
                       <input id="initials" type="text" name="" class="form-control" placeholder="3 initials..."><br>
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <label class="input-group-text" for="inputGroupSelect01">Select Difficulty</label>
-                        </div>
-                        <select class="custom-select" id="inputGroupSelect01">
-                          <option selected>Choose Level...</option>
-                          <option class="dropdown-item" value="1">Level 1</option>
-                          <option class="dropdown-item" value="2">Level 2</option>
-                          <option class="dropdown-item" value="3">Level 3</option>
-                          <option class="dropdown-item" value="4">Level 4</option>
-                          <option class="dropdown-item" value="5">Level 5</option>
-                          <option class="dropdown-item" value="6">Level 6</option>
-                          <option class="dropdown-item" value="7">Level 7</option>
-                          <option class="dropdown-item" value="8">Level 8</option>
-                          <option class="dropdown-item" value="9">Level 9</option>
-                        </select>
-                      </div>
+                      <input id="profile_pic_path" type="text" name="" class="form-control" placeholder="Profile Pic Path..."><br>
                       <input type="submit" style="display:none"/>
                       <input id="startButton" class="btn btn-success btn-lg btn-block" type="button" value="Start Game">
                     </form>
@@ -168,7 +158,7 @@
                <!-- <br>
                <button id="playerStatsButton" type="button" class="btn btn-info">Personal Stats</button>
                <br>
-               <table id="playerStatsTable" class="table table-striped" style="display: none">
+               <table id="statsTable" class="table table-striped" style="display: none">
                 <thead>
                     <tr>
                       <th>Game</th>
