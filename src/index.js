@@ -8,9 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const form = document.getElementById("form")
   const canvas = document.getElementById("canvas")
-  let context = document.getElementById("canvas").getContext("2d")
-  const statsButton = document.getElementById("statsButton")
-  const statsTable = document.getElementById("statsTable")
+  const context = document.getElementById("canvas").getContext("2d")
+  // const statsButton = document.getElementById("statsButton")
   const startButton = document.getElementById("startButton")
   const scoreBar = document.getElementById("scorebar")
   const timeBar = document.getElementById("timebar")  
@@ -18,8 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const info = document.getElementById("info")
 
   const carousel = document.getElementById("myCarousel")
-  let nextLevelButton = document.getElementById("nextLevel")
+  const nextLevelButton = document.getElementById("nextLevel")
   const nextLevelDiv = document.getElementById("nextLevelDiv")
+
+  const statsTable = document.getElementById("playerStatsTableBody")
 
 
   let jeffImage = new Image()
@@ -50,8 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     balls.push(new Ball(300, 300, 5))
   }
 
-
-
   function addPlayerToDB(userObj){
     fetch(USERS_URL, {
       method: "POST",
@@ -62,9 +61,28 @@ document.addEventListener('DOMContentLoaded', () => {
       body: JSON.stringify(userObj)
   })
   .then(resp => resp.json())
-  .then(json => console.log(json))
+  .then(json => {
+    const gameRecordNumber = json.data.attributes.games.length
+    const gameRecords = json.data.attributes.games
+
+    if(gameRecordNumber > 0){
+      gameRecords.forEach(populatePersonalStats)
+    }
+  })
   }
 
+  function populatePersonalStats(gameRec){
+    let t = ""
+
+    let tr = "<tr>"
+    tr += "<td>"+gameRec.score+"</td>"
+    tr += "<td>"+gameRec.level+"</td>"
+    tr += "<td>"+gameRec.created_at+"</td>"
+    tr += "</tr>"
+    t += tr
+
+    statsTable.innerHTML += t;
+  }
   
 
 
