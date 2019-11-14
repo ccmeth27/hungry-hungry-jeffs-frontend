@@ -3,8 +3,9 @@ const GAMES_URL = "http://127.0.0.1:3000/api/v1/games"
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  updateLeaderboard()
   addCarouselListeners()
-  let statsShown = false
+  addSelectorListeners()
 
   const form = document.getElementById("form")
   const canvas = document.getElementById("canvas")
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextLevelDiv = document.getElementById("nextLevelDiv")
 
   const statsTable = document.getElementById("playerStatsTableBody")
+  const leaderboard = document.getElementById("leaderboardTable")
 
 
   let jeffImage = new Image()
@@ -75,14 +77,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let t = ""
 
     let tr = "<tr>"
-    tr += "<td>"+gameRec.score+"</td>"
-    tr += "<td>"+gameRec.level+"</td>"
-    tr += "<td>"+gameRec.created_at+"</td>"
+    tr += `<td>${gameRec.score}</td>`
+    tr += `<td>${gameRec.level}</td>`
+    tr += `<td>${gameRec.created_at}</td>`
     tr += "</tr>"
     t += tr
 
-    statsTable.innerHTML += t;
+    statsTable.innerHTML += t
   }
+
+  function updateLeaderboard(){
+    fetch(GAMES_URL)
+    .then(resp => resp.json())
+    .then(json => json.data.forEach(populateLeaderboard))
+  }
+
+  function populateLeaderboard(gameRec){
+    let t = ""
+    let tr = "<tr>"
+    tr += `<td>${gameRec.attributes.user.username}</td>`
+    tr += `<td>${gameRec.attributes.user.initials}</td>`
+    tr += `<td>${gameRec.attributes.score}</td>`
+    tr += `<td>${gameRec.attributes.level}</td>`
+    tr += `<td>${gameRec.attributes.created_at}</td>`
+    tr += "</tr>"
+    t += tr
+
+    leaderboard.innerHTML += t
+  }
+
   
 
 
@@ -94,11 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
     form.style.display = 'none'
     let username = e.target[0].value
     let initials = e.target[1].value
-    let profile_pic_path = e.target[2].value
     let userObj = {
       username: username,
-      initials: initials,
-      profile_pic_path: profile_pic_path
+      initials: initials
     }
     addPlayerToDB(userObj)
   }

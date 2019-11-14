@@ -1,4 +1,7 @@
 function loop(timeBar, scoreBar, jeff, ballSprite, balls){
+  let eatingAudio = new Audio('sounds/eating.m4a')
+
+
     let canvas = document.getElementById("canvas")
     let context = canvas.getContext("2d")
     let nextLevelDiv = document.getElementById("nextLevelDiv")
@@ -58,9 +61,11 @@ function loop(timeBar, scoreBar, jeff, ballSprite, balls){
               context.drawImage(ballSprite, ball.x, ball.y, 40, 40)
               
               if (ball.x < 345 && ball.x > 255 && ball.y > 460 && ball.y < 500 && down === true) {
-                  balls.splice(index, 1)
-                  score += 100
-                  scoreBar.innerText = `Score: ${score}`
+                eatingAudio.play()
+                balls.splice(index, 1)
+                score += 100
+                scoreBar.innerText = `Score: ${score}`
+
               }
 
             ball.updatePosition(width, height)
