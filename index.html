@@ -7,6 +7,7 @@
     <script type="text/javascript" src="src/ball.js"></script>
     <script type="text/javascript" src="src/sprite.js"></script>
     <script type="text/javascript" src="src/carousel.js"></script>
+    <script type="text/javascript" src="src/selector.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/gameLoop.js"></script>
     <!-- <script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script> -->
@@ -38,7 +39,7 @@
             <canvas id="canvas" width='600' height="600" style="display: none"></canvas>
           </div>
           <br>
-          <div class="card border-info mb-3" id="info" style="max-width: '740';">
+          <div class="card border-info mb-3" id="info" style="max-width: 600px;">
             <div class="card-header">
               <h5>Meet The Jeffs:</h5>
             </div>
@@ -67,7 +68,7 @@
           </div>
           
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" id="selectorControl">
             <div id="sidebar" class="">
                <div class="item">
                  <h2>
@@ -78,7 +79,6 @@
                   <form id="form" action="" method="post" class="form-group">
                       <input id="username" type="text" name="" class="form-control" placeholder="Username..."><br>
                       <input id="initials" type="text" name="" class="form-control" placeholder="3 initials..."><br>
-                      <input id="profile_pic_path" type="text" name="" class="form-control" placeholder="Profile Pic Path..."><br>
                       <input type="submit" style="display:none"/>
                     </form>
                     <button id="startButton" type="button" class="btn btn-success btn-lg btn-block" style="display: none">Start Game</button>
@@ -86,17 +86,17 @@
                <!-- start -->
                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" id="pills-gameplay-tab" data-toggle="pill" role="tab" aria-controls="pills-gameplay" aria-selected="true">Gameplay</a>
+                  <a class="nav-link active" data-selected_id="1" id="pills-gameplay-tab" data-toggle="pill" role="tab" aria-controls="pills-gameplay" aria-selected="true">Gameplay</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="pills-player-stats-tab" data-toggle="pill" role="tab" aria-controls="pills-stats" aria-selected="false">Player Stats</a>
+                  <a class="nav-link" data-selected_id="2" id="pills-player-stats-tab" data-toggle="pill" role="tab" aria-controls="pills-stats" aria-selected="false">Player Stats</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="pills-leaderboard-tab" data-toggle="pill" role="tab" aria-controls="pills-leaderboard" aria-selected="false">Leaderboard</a>
+                  <a class="nav-link" data-selected_id="3" id="pills-leaderboard-tab" data-toggle="pill" role="tab" aria-controls="pills-leaderboard" aria-selected="false">Leaderboard</a>
                 </li>
               </ul>
               <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-gameplay" role="tabpanel" aria-labelledby="pills-gameplay-tab">
+                <div class="tab-pane fade show active" data-desc_id="1" id="pills-gameplay" role="tabpanel" aria-labelledby="pills-gameplay-tab">
                   <ul id = "rules">
                     <p>> Input a username, select a difficult level, and hit Start Game</p>
                     <p>> Click within the game window to activate controls</p>
@@ -106,7 +106,7 @@
                     <p>> Every object eaten = 100 points</p>
                   </ul>
                 </div>
-                <div class="tab-pane fade" id="pills-stats" role="tabpanel" aria-labelledby="pills-stats-tab">
+                <div class="tab-pane fade" data-desc_id="2" id="pills-stats" role="tabpanel" aria-labelledby="pills-stats-tab">
                   <table id="playerStatsTable" class="table table-striped">
                     <thead>
                         <tr>
@@ -119,13 +119,15 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="tab-pane fade" id="pills-leaderboard" role="tabpanel" aria-labelledby="pills-leaderboard-tab">
+                <div class="tab-pane fade" data-desc_id="3" id="pills-leaderboard" role="tabpanel" aria-labelledby="pills-leaderboard-tab">
                   <table id="leaderboardTable" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Rank</th>
-                            <th>Player</th>
+                            <th>Username</th>
+                            <th>Initials</th>
                             <th>Score</th>
+                            <th>Level</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                       <tbody id="leaderboardTableBody">
