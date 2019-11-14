@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextLevelButton = document.getElementById("nextLevel")
   const nextLevelDiv = document.getElementById("nextLevelDiv")
 
+  const restartButton = document.getElementById("restart")
+  const restartDiv = document.getElementById("restartDiv")
+
   const statsTable = document.getElementById("playerStatsTableBody")
   const leaderboard = document.getElementById("leaderboardTable")
 
@@ -161,6 +164,20 @@ document.addEventListener('DOMContentLoaded', () => {
     loop(timeBar, scoreBar, jeff, riceBallSprite, balls)
   }
 
+  restartButton.addEventListener("click", rastartHandler)
+
+  function rastartHandler(e){
+    levelBar.innerText = "Level 1"
+    scoreBar.innerText = "Score: 0"
+    balls = []
+    for(let index = 0; index < 12; index ++) {
+      balls.push(new Ball(300, 300, 5))
+    }
+    canvas.style.display = ''
+    loop(timeBar, scoreBar, jeff, riceBallSprite, balls)
+    restartDiv.style.display = 'none'
+  }
+
 
   nextLevelButton.addEventListener("click", proceedToNextLevelHandler)
 
@@ -241,6 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
       info.appendChild(img)
     }else{
       canvas.style.display = 'none'
+      restartDiv.style.display = ''
       let img = document.createElement("img")
       img.src = "images/you-lose.png"
       let h4 = document.createElement("h4")
