@@ -3,6 +3,7 @@ const GAMES_URL = "http://127.0.0.1:3000/api/v1/games"
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  addCarouselListeners()
   let statsShown = false
 
   const form = document.getElementById("form")

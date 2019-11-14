@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="src/ball.js"></script>
     <script type="text/javascript" src="src/sprite.js"></script>
+    <script type="text/javascript" src="src/carousel.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/gameLoop.js"></script>
     <!-- <script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script> -->
@@ -42,34 +43,23 @@
               <h5>Meet The Jeffs:</h5>
             </div>
             <div id="myCarousel" class="carousel-slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" ></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-              </ol>
-              <div class="carousel-inner" role="listbox">
-                <div class="carousel-item">
+              <div id="carouselInner" class="carousel-inner" role="listbox">
+                <div class="carousel-item active" data-carousel_pic_id="1">
                   <img class="d-block w-100" src="images/jeff-carousel.png">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-carousel_pic_id="2">
                   <img class="d-block w-100" src="images/goldblum-carousel.png">
                 </div>
-                <div class="carousel-item active">
+                <div class="carousel-item" data-carousel_pic_id="3">
                   <img class="d-block w-100" src="images/bridges-carousel.png">
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-carousel_pic_id="4">
                   <img class="d-block w-100" src="images/bezos-carousel.png">
                 </div>
               </div>
-              <a class="carousel-control-prev" href="" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
+              <button type="button" class="carousel-control-prev" id="prev-slide-btn" style="width: 10%;height: 10%;margin-top: 45%;background-color: Transparent;"> < </button>
+
+              <button type="button" class="carousel-control-next" id="next-slide-btn" style="width: 10%;height: 10%;margin-top: 45%;background-color: Transparent;"> > </button>
             </div>
           </div>
           <div id="nextLevelDiv" style="display: none">
@@ -111,11 +101,9 @@
                     <p>> Input a username, select a difficult level, and hit Start Game</p>
                     <p>> Click within the game window to activate controls</p>
                     <p>> Use the 'space' button to extend Jeff</p>
-                    <!-- <p>> Press 'ESC' / Escape to leave cursor control</p> -->
                     <p>> Press 'F' to change player sprite</p>
                     <p>> Increase your score by surviving and eating cookies</p>
                     <p>> Every object eaten = 100 points</p>
-                    <!-- <p>> DODGE THE VEGETABLES!</p> -->
                   </ul>
                 </div>
                 <div class="tab-pane fade" id="pills-stats" role="tabpanel" aria-labelledby="pills-stats-tab">
