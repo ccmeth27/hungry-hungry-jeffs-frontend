@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const info = document.getElementById("info")
 
   const carousel = document.getElementById("myCarousel")
+  const jeffHeader = document.getElementById("jeff-header")
   const nextLevelButton = document.getElementById("nextLevel")
   const nextLevelDiv = document.getElementById("nextLevelDiv")
 
@@ -253,11 +254,13 @@ document.addEventListener('DOMContentLoaded', () => {
       loop(timeBar, scoreBar, jeffBezos, moneyBallSprite, balls)
     }else if(parseInt(levelBar.innerText.split(" ")[1]) === 12 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
       canvas.style.display = 'none'
+      jeffHeader.style.display = 'none'
       let img = document.createElement("img")
       img.src = "images/you-win.png"
       info.appendChild(img)
     }else{
       canvas.style.display = 'none'
+      jeffHeader.style.display = 'none'
       restartDiv.style.display = ''
       let img = document.createElement("img")
       img.src = "images/you-lose.png"

@@ -38,8 +38,8 @@
           <div id="container">
             <canvas id="canvas" width='600' height="600" style="display: none"></canvas>
           </div>
-          <br>
-          <div class="card mb-3" id="info" style="max-width: 600px;">
+          <!-- <br> -->
+          <div class="card mb-6" id="info" style="max-width: 700px;">
             <div class="card-header" id="jeff-header">
               <h5>Meet The Jeffs:</h5>
             </div>
@@ -72,20 +72,20 @@
           
         </div>
         <div class="col-md-6" id="selectorControl">
-            <div id="sidebar" class="">
+            <div id="sidebar" class="sidebar">
                <div class="item">
                  <h2>
-                   <span class="game-title">Hungry-Hungry Jeffs!</span>
+                   <span id="game-title" class="game-title">Hungry-Hungry Jeffs!</span>
                  </h2>
                </div>
-               <p id="user-icon" class="item">
+               <!-- <p id="user-icon" class="item"> -->
                   <form id="form" action="" method="post" class="form-group">
-                      <input id="username" type="text" name="" class="form-control" placeholder="Username..."><br>
-                      <input id="initials" type="text" name="" class="form-control" placeholder="3 initials..."><br>
+                      <input id="username" type="text" name="" class="form-control" placeholder="Username..." required><br>
+                      <input id="initials" type="text" name="" class="form-control" placeholder="3 initials..." maxlength="3" required><br>
                       <input type="submit" style="display:none"/>
                     </form>
                     <button id="startButton" type="button" class="btn btn-success btn-lg btn-block" style="display: none">Start Game</button>
-               </p>
+               <br>
                <!-- start -->
                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
@@ -101,22 +101,22 @@
               <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" data-desc_id="1" id="pills-gameplay" role="tabpanel" aria-labelledby="pills-gameplay-tab">
                   <ul id = "rules">
-                    <p>⭐️Input a username, select a difficult level, and hit Start Game</p>
-                    <p>⭐️Use the 'space' button to extend Jeff</p>
-                    <p>⭐️Every object eaten = 100 points</p>
-                    <p>⭐️Minimum score to pass each level:</p>
-                    <p>Level 1️⃣: 700</p>
-                    <p>Level 2️⃣: 700</p>
-                    <p>Level 3️⃣: 700</p>
-                    <p>Level 4️⃣: 700</p>
-                    <p>Level 5️⃣: 700</p>
-                    <p>Level 6️⃣: 700</p>
-                    <p>Level 7️⃣: 700</p>
-                    <p>Level 8️⃣: 700</p>
-                    <p>Level 9️⃣: 700</p>
-                    <p>Level 1️⃣0️⃣: 700</p>
-                    <p>Level 1️⃣1️⃣: 700</p>
-                    <p>Level 1️⃣2️⃣: 700</p>
+                    <li>⭐️Input a username, select a difficulty level, and hit Start Game</li>
+                    <li>⭐️Use the 'space' button to extend Jeff</li>
+                    <li>⭐️Every object eaten = 100 points</li>
+                    <li>⭐️Minimum score to pass each level:</li>
+                    <li>Level 1️⃣: 700</li>
+                    <li>Level 2️⃣: 1300</li>
+                    <li>Level 3️⃣: 2000</li>
+                    <li>Level 4️⃣: 2700</li>
+                    <li>Level 5️⃣: 3400</li>
+                    <li>Level 6️⃣: 4200</li>
+                    <li>Level 7️⃣: 4900</li>
+                    <li>Level 8️⃣: 5600</li>
+                    <li>Level 9️⃣: 6500</li>
+                    <li>Level 1️⃣0️⃣: 7200</li>
+                    <li>Level 1️⃣1️⃣: 8000</li>
+                    <li>Level 1️⃣2️⃣: 9000</li>
                   </ul>
                 </div>
                 <div class="tab-pane fade" data-desc_id="2" id="pills-stats" role="tabpanel" aria-labelledby="pills-stats-tab">
