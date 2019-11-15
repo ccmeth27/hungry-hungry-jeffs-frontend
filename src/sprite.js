@@ -41,4 +41,25 @@ class Sprite{
         this.width / this.numberOfFrames * this.scaleRatio,
         this.height * this.scaleRatio)
     }
+
+    multiRender(player){
+        let angle
+        if(player === "left")angle = Math.PI / 2
+        if(player === "right")angle = (3 * Math.PI) / 2
+        this.context.translate(300, 300)
+        this.context.rotate(angle)
+        // Draw the animation
+        this.context.drawImage(
+        this.image,
+        this.frameIndex * this.width / this.numberOfFrames,
+        0,
+        this.width / this.numberOfFrames,
+        this.height,
+        -50, 
+        20,
+        this.width / this.numberOfFrames * this.scaleRatio,
+        this.height * this.scaleRatio)
+        this.context.rotate(-angle)
+        this.context.translate(-300, -300)
+    }
 }

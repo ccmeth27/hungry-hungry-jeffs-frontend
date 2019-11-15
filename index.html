@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hungry-hungry Jeffos!</title>
+    <title>Hungry-Hungry Jeffos!</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="src/ball.js"></script>
     <script type="text/javascript" src="src/sprite.js"></script>
@@ -10,6 +10,7 @@
     <script type="text/javascript" src="src/selector.js"></script>
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/gameLoop.js"></script>
+    <script type="text/javascript" src="src/multiplayerGameLoop.js"></script>
     <!-- <script type="text/javascript" src="./lib/jquery-3.3.1.min.js"></script> -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -34,6 +35,15 @@
             <div class="col col-sm-4 justify-content-end">
               <h5 id="scorebar" class="btn btn-danger" style="display: none;">Score: 0</h5>
             </div>
+            <div class="col col-sm-4">
+                <h5 id="p1scorebar" class="btn btn-success" style="display: none;">Score: 0</h5>
+              </div>
+              <div class="col col-sm-4">
+                <h5 id="2ptimebar" class="btn btn-danger" style="display: none;">Time Left: 24</h5>
+              </div>
+              <div class="col col-sm-4 justify-content-end">
+                <h5 id="p2scorebar" class="btn btn-warning" style="display: none;">Score: 0</h5>
+              </div>
           </div>
           <div id="container">
             <canvas id="canvas" width='600' height="600" style="display: none"></canvas>
@@ -69,6 +79,9 @@
           <div id="restartDiv" style="display: none">
               <button id="restart" type="button" class="btn btn-info btn-lg btn-block" style="text-align: center;">Play Again</button>
           </div>
+          <div id="restartDiv2p" style="display: none">
+              <button id="restart2p" type="button" class="btn btn-info btn-lg btn-block" style="text-align: center;">Repeat duel!!!</button>
+          </div>
           
         </div>
         <div class="col-md-6" id="selectorControl">
@@ -78,24 +91,44 @@
                    <span id="game-title" class="game-title">Hungry-Hungry Jeffs!</span>
                  </h2>
                </div>
-               <!-- <p id="user-icon" class="item"> -->
-                  <form id="form" action="" method="post" class="form-group">
-                      <input id="username" type="text" name="" class="form-control" placeholder="Username..." required><br>
-                      <input id="initials" type="text" name="" class="form-control" placeholder="3 initials..." maxlength="3" required><br>
-                      <input type="submit" style="display:none"/>
-                    </form>
-                    <button id="startButton" type="button" class="btn btn-success btn-lg btn-block" style="display: none">Start Game</button>
-               <br>
+               <div id="chooseNumOfPlayers" class="item">
+                  <button id="1pButton" type="button" class="btn btn-ingo btn-lg btn-block">Single Player</button>
+                  <button id="2pButton" type="button" class="btn btn-ingo btn-lg btn-block">2 Players(TEST MODE)</button>
+                  <button id="4pButton" type="button" class="btn btn-ingo btn-lg btn-block">4 Players(IN DEVELOPMENT)</button>
+               </div>
+               <div id="user-input" class="item">
+                  <form id="gameSettings2p" class="range-field my-4 w-100" style="display: none;">
+                    <p id="win_lose">Number of balls</p>
+                    <input type="range" min="1" max="15" value="8" class="slider" id="numOfBalls">
+                    <p id="win_lose" data-selector="1" style="text-align: right;">8</p>
+                    <p id="win_lose">Balls Speed</p>
+                    <input type="range" min="1" max="9" value="5" class="slider" id="ballsSpeed">
+                    <p id="win_lose" data-selector="2" style="text-align: right;">5</p>
+                    <p id="win_lose">Time</p>
+                    <input type="range" min="1" max="30" value="15" class="slider" id="timeToPlay">
+                    <p id="win_lose" data-selector="3" style="text-align: right;">15</p>
+                    <input type="submit" class="btn btn-success btn-lg btn-block" value="Start Game"/>
+                  </form>
+                  <form id="form" action="" method="post" class="form-group" style="display: none;">
+                    <input id="username" type="text" name="" class="form-control" placeholder="Username..."><br>
+                    <input id="initials" type="text" name="" class="form-control" placeholder="3 initials..."><br>
+                    <input type="submit" style="display:none"/>
+                  </form>
+                  <button id="startButton" type="button" class="btn btn-success btn-lg btn-block" style="display: none">Start Game</button>
+                </div>
                <!-- start -->
                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link active" data-selected_id="1" id="pills-gameplay-tab" data-toggle="pill" role="tab" aria-controls="pills-gameplay" aria-selected="true">Gameplay</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-selected_id="2" id="pills-player-stats-tab" data-toggle="pill" role="tab" aria-controls="pills-stats" aria-selected="false">Player Stats</a>
+                  <a class="nav-link" data-selected_id="2" id="pills-multi-tab" data-toggle="pill" role="tab" aria-controls="pills-multi" aria-selected="false">2-or-4-players gameplay</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-selected_id="3" id="pills-leaderboard-tab" data-toggle="pill" role="tab" aria-controls="pills-leaderboard" aria-selected="false">Leaderboard</a>
+                  <a class="nav-link" data-selected_id="3" id="pills-player-stats-tab" data-toggle="pill" role="tab" aria-controls="pills-stats" aria-selected="false">Player Stats</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-selected_id="4" id="pills-leaderboard-tab" data-toggle="pill" role="tab" aria-controls="pills-leaderboard" aria-selected="false">Leaderboard</a>
                 </li>
               </ul>
               <div class="tab-content" id="pills-tabContent">
@@ -119,7 +152,27 @@
                     <li>Level 1️⃣2️⃣: 9000</li>
                   </ul>
                 </div>
-                <div class="tab-pane fade" data-desc_id="2" id="pills-stats" role="tabpanel" aria-labelledby="pills-stats-tab">
+                <div class="tab-pane fade" data-desc_id="2" id="pills-multi" role="tabpanel" aria-labelledby="pills-multi-tab">
+                  <ul id = "multirules">
+                    <p>⭐️Input a username, select a difficult level, and hit Start Game</p>
+                    <p>⭐️Use the 'space' button to extend Jeff</p>
+                    <p>⭐️Every object eaten = 100 points</p>
+                    <p>⭐️Minimum score to pass each level:</p>
+                    <p>Level 1️⃣: 700</p>
+                    <p>Level 2️⃣: 700</p>
+                    <p>Level 3️⃣: 700</p>
+                    <p>Level 4️⃣: 700</p>
+                    <p>Level 5️⃣: 700</p>
+                    <p>Level 6️⃣: 700</p>
+                    <p>Level 7️⃣: 700</p>
+                    <p>Level 8️⃣: 700</p>
+                    <p>Level 9️⃣: 700</p>
+                    <p>Level 1️⃣0️⃣: 700</p>
+                    <p>Level 1️⃣1️⃣: 700</p>
+                    <p>Level 1️⃣2️⃣: 700</p>
+                  </ul>
+                </div>
+                <div class="tab-pane fade" data-desc_id="3" id="pills-stats" role="tabpanel" aria-labelledby="pills-stats-tab">
                   <table id="playerStatsTable" class="table table-striped">
                     <thead>
                         <tr>
@@ -132,7 +185,7 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="tab-pane fade" data-desc_id="3" id="pills-leaderboard" role="tabpanel" aria-labelledby="pills-leaderboard-tab">
+                <div class="tab-pane fade" data-desc_id="4" id="pills-leaderboard" role="tabpanel" aria-labelledby="pills-leaderboard-tab">
                   <table id="leaderboardTable" class="table table-striped">
                     <thead>
                         <tr>
