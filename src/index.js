@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let jeffLebowski = new Sprite(context, 505, 718, lebowskiImage, 0, 2)
   let jeffGoldblum = new Sprite(context, 505, 718, goldblumImage, 0, 2)
 
-  let multiChars = [jeff, jeffTheBoss, jeffBezos, jeffLebowski, jeffGoldblum]
+  let multiCharsImages = [jeffImage, bezosImage, jeffExtraImage, goldblumImage, lebowskiImage]
 
   // generic Jeff sprites
   let riceBallSprite = new Image()
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault()
     carousel.style.display = "none"
     multiplayerForm.style.display = "none"
-    multiLoop(multiChars[Math.floor(Math.random()*multiChars.length)], multiChars[Math.floor(Math.random()*multiChars.length)], multiBalls[Math.floor(Math.random()*multiBalls.length)], e.target[0].value,  e.target[1].value, e.target[2].value)
+    multiLoop("2", multiCharsImages[Math.floor(Math.random()*multiCharsImages.length)], multiCharsImages[Math.floor(Math.random()*multiCharsImages.length)], multiBalls[Math.floor(Math.random()*multiBalls.length)], e.target[0].value,  e.target[1].value, e.target[2].value)
   }
 
   
@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
     balls = []
     canvas.style.display = ''
     document.querySelectorAll(`[data-loss_id="loss"]`).forEach((el) => el.remove())
-    multiLoop(multiChars[Math.floor(Math.random()*multiChars.length)], multiChars[Math.floor(Math.random()*multiChars.length)], multiBalls[Math.floor(Math.random()*multiBalls.length)], e.target[0].value,  e.target[1].value, e.target[2].value)
+    multiLoop("2", multiCharsImages[Math.floor(Math.random()*multiCharsImages.length)], multiCharsImages[Math.floor(Math.random()*multiCharsImages.length)], multiBalls[Math.floor(Math.random()*multiBalls.length)], 8, 5, 15)
     restartMultiDiv.style.display = 'none'
   }
 

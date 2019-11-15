@@ -1,4 +1,4 @@
-function multiLoop(jeff_left, jeff_right, ballSprite, numOfBalls, ballsSpeed, time= 24){
+function multiLoop(game_mode = "2",jeff_left_pic, jeff_right_pic, ballSprite, numOfBalls, ballsSpeed, time= 24, jeff_top_pic, jeff_bottom_pic){
     let eatingAudio = new Audio('sounds/eating.m4a')
   
     const leftScoreBar = document.getElementById("p1scorebar")
@@ -25,6 +25,21 @@ function multiLoop(jeff_left, jeff_right, ballSprite, numOfBalls, ballsSpeed, ti
     let down_left = false
     let leftScore = parseInt(leftScoreBar.innerText.split(" ")[1])
     let rightScore = parseInt(rightScoreBar.innerText.split(" ")[1])
+
+    let jeff_top, jeff_bottom
+    let jeff_right = new Sprite(context, 505, 718, jeff_right_pic, 0, 2)
+    let jeff_left = new Sprite(context, 505, 718, jeff_left_pic, 0, 2)
+
+    let topScoreBar = document.getElementById("p3scorebar")
+    let bottomScoreBar = document.getElementById("p4scorebar")
+    let down_top = false
+    let down_bottom = false
+    let topScore = parseInt(topScoreBar.innerText.split(" ")[1])
+    let bottomScore = parseInt(bottomScoreBar.innerText.split(" ")[1])
+    if(game_mode === "4"){
+      jeff_top = new Sprite(context, 505, 718, jeff_top_pic, 0, 2)
+      jeff_bottom = new Sprite(context, 505, 718, jeff_bottom_pic, 0, 2)
+    }
   
     document.addEventListener("keydown", keyDownHandler)
   
@@ -42,8 +57,23 @@ function multiLoop(jeff_left, jeff_right, ballSprite, numOfBalls, ballsSpeed, ti
         if(down_right) return
         down_right = true
       }
+      if(game_mode === "4"){
+        if(e.keyCode === 67){
+          e.preventDefault()
+          jeff_bottom.update()  
+          // console.log("key down")
+          if(down_bottom) return
+          down_bottom = true
+        }else if(e.keyCode === 78){
+          e.preventDefault()
+          jeff_top.update()  
+          // console.log("key down")
+          if(down_top) return
+          down_top = true
+        }
+      }
     }
-    //65- a  76- l
+    //65- a  76- l 67- c 78- n
   
     document.addEventListener("keyup", keyUpHandler) 
     
@@ -57,6 +87,17 @@ function multiLoop(jeff_left, jeff_right, ballSprite, numOfBalls, ballsSpeed, ti
         // console.log("key up")
         down_right = false
       }
+      if(game_mode === "4"){
+        if(e.keyCode === 67){
+          jeff_bottom.update() 
+          // console.log("key up")
+          down_botjeff_bottom = false
+        }else if(e.keyCode === 78){
+          jeff_top.update() 
+          // console.log("key up")
+          down_top = false
+        }
+      }
     }
   
     let balls = new Array()
@@ -69,9 +110,15 @@ function multiLoop(jeff_left, jeff_right, ballSprite, numOfBalls, ballsSpeed, ti
     rightScoreBar.style.display = ''
     timeBar.style.display = ''
     info.style.display = "none"
-    multiGameLoop()
+    if(game_mode === "4"){
+      topScoreBar.style.display = ''
+      bottomScoreBar.style.display = ''
+      multiGameLoop("4")
+    }else{
+      multiGameLoop("2")
+    }
     
-    function multiGameLoop() {
+    function multiGameLoop(numOfPlayers = "2") {
         if(balls.length !== 0 && time_left !== 0){
             window.requestAnimationFrame(multiGameLoop)
             let height = 600
@@ -80,6 +127,7 @@ function multiLoop(jeff_left, jeff_right, ballSprite, numOfBalls, ballsSpeed, ti
             context.canvas.width = width
   
             context.beginPath()
+            context.fillRect(255,60,90,40)
             context.fillStyle = "#dbf02c"
             context.fillRect(570,220,30,30) //105  470 dbf02c
             context.fillStyle = "#21dd21"
