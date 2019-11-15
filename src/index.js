@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const info = document.getElementById("info")
 
   const carousel = document.getElementById("myCarousel")
+  const jeffHeader = document.getElementById("jeff-header")
   const nextLevelButton = document.getElementById("nextLevel")
   const nextLevelDiv = document.getElementById("nextLevelDiv")
 
@@ -299,41 +300,42 @@ document.addEventListener('DOMContentLoaded', () => {
     balls = []
     canvas.style.display = ''
     nextLevelDiv.style.display = 'none'
-    if(parseInt(levelBar.innerText.split(" ")[1]) === 1 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+    if(parseInt(levelBar.innerText.split(" ")[1]) === 1 && parseInt(scoreBar.innerText.split(" ")[1]) >= 600){
       levelBar.innerText = "Level 2"
-      loop(jeff, basketBallSprite, 12, 8)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 2 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeff, basketBallSprite, 12, 6, 20)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 2 && parseInt(scoreBar.innerText.split(" ")[1]) >= 1200){
       levelBar.innerText = "Level 3"
-      loop(jeffTheBoss, edamameBallSprite, 12, 6)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 3 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeffTheBoss, edamameBallSprite, 10, 5, 16)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 3 && parseInt(scoreBar.innerText.split(" ")[1]) >= 1800){
       levelBar.innerText = "Level 4"
-      loop(jeffGoldblum, dinosaurSprite, 10, 6)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 4 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeffGoldblum, dinosaurSprite, 8, 5, 16)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 4 && parseInt(scoreBar.innerText.split(" ")[1]) >= 2300){
       levelBar.innerText = "Level 5"
-      loop(jeffGoldblum, alienSprite, 12, 7)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 5 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeffGoldblum, alienSprite, 10, 7, 20)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 5 && parseInt(scoreBar.innerText.split(" ")[1]) >= 2900){
       levelBar.innerText = "Level 6"
-      loop(jeffGoldblum, pianoSprite, 12, 6)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 6 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeffGoldblum, pianoSprite, 12, 6, 20)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 6 && parseInt(scoreBar.innerText.split(" ")[1]) >= 3500){
       levelBar.innerText = "Level 7"
-      loop(jeffLebowski, whiteRussianSprite, 12, 6)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 7 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeffLebowski, whiteRussianSprite, 10, 5, 20)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 7 && parseInt(scoreBar.innerText.split(" ")[1]) >= 4200){
       levelBar.innerText = "Level 8"
-      loop(jeffLebowski, tronDiscSprite, 12, 7)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 8 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeffLebowski, tronDiscSprite, 12, 7, 24)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 8 && parseInt(scoreBar.innerText.split(" ")[1]) >= 4900){
       levelBar.innerText = "Level 9"
-      loop(jeffLebowski, bowlingSprite, 12, 9)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 9 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeffLebowski, bowlingSprite, 12, 8, 20)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 9 && parseInt(scoreBar.innerText.split(" ")[1]) >= 5600){
       levelBar.innerText = "Level 10"
-      loop(jeffBezos, bookSprite, 12, 6)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 10 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeffBezos, bookSprite, 10, 6, 24)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 10 && parseInt(scoreBar.innerText.split(" ")[1]) >= 6400){
       levelBar.innerText = "Level 11"
-      loop(jeffBezos, boxSprite, 12, 10)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 11 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeffBezos, boxSprite, 12, 9, 16)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 11 && parseInt(scoreBar.innerText.split(" ")[1]) >= 7200){
       levelBar.innerText = "Level 12"
-      loop(jeffBezos, moneyBallSprite, 12, 8)
-    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 12 && parseInt(scoreBar.innerText.split(" ")[1]) > 600){
+      loop(jeffBezos, moneyBallSprite, 12, 7, 20)
+    }else if(parseInt(levelBar.innerText.split(" ")[1]) === 12 && parseInt(scoreBar.innerText.split(" ")[1]) >= 8400){
       canvas.style.display = 'none'
+      jeffHeader.style.display = 'none'
       let img = document.createElement("img")
       img.src = "images/you-win.png"
       info.appendChild(img)
@@ -345,6 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
       addGameToDB(gameObj)
     }else{
       canvas.style.display = 'none'
+      jeffHeader.style.display = 'none'
       restartDiv.style.display = ''
       let img = document.createElement("img")
       img.src = "images/you-lose.png"

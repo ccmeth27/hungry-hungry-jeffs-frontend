@@ -1,5 +1,7 @@
 function loop(jeff, ballSprite, numOfBalls, ballsSpeed, time = 24){
   let eatingAudio = new Audio('sounds/eating.m4a')
+  let gameAudio = new Audio('sounds/hungry-hungry-jeffs-track.mp3')
+  gameAudio.volume = 0.15
 
   const scoreBar = document.getElementById("scorebar")
   const timeBar = document.getElementById("timebar")  
@@ -65,6 +67,7 @@ function loop(jeff, ballSprite, numOfBalls, ballsSpeed, time = 24){
           let width  = 600
           context.canvas.height = height
           context.canvas.width = width
+          gameAudio.play()
 
           context.beginPath()
           // context.fillRect(255,460,90,40);
@@ -101,6 +104,8 @@ function loop(jeff, ballSprite, numOfBalls, ballsSpeed, time = 24){
         balls = []
         time_left = 0
         info.style.display = ''
+        gameAudio.pause()
+        gameAudio.currentTime = 0
         eatingAudio.pause()
         eatingAudio.currentTime = 0
         document.removeEventListener("keydown", keyDownHandler)
