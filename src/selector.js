@@ -1,7 +1,6 @@
 function addSelectorListeners() {
     const selectorDiv = document.getElementById("selectorControl")
 
-
     selectorDiv.addEventListener("click", selectionHandler)
 
     function selectionHandler(ev) {
