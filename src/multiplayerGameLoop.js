@@ -126,16 +126,19 @@ function multiLoop(jeff_left, jeff_right, ballSprite, numOfBalls, ballsSpeed, ti
           eatingAudio.currentTime = 0
           document.removeEventListener("keydown", keyDownHandler)
           document.removeEventListener("keyup", keyUpHandler)
+          let img = document.createElement("img")
           let h4 = document.createElement("h4")
           if(parseInt(rightScoreBar.innerText.split(" ")[1]) > parseInt(leftScoreBar.innerText.split(" ")[1])){
             h4.innerText = `Yellow won!`
           }else if(parseInt(leftScoreBar.innerText.split(" ")[1]) > parseInt(rightScoreBar.innerText.split(" ")[1])){
             h4.innerText = `Green won!`
           }else{
+            img.src = "images/tie-game.jpg"
             h4.innerText = `It's a tie!`
           }
             h4.dataset.loss_id = "loss"
             h4.id = "win_lose"
+            info.appendChild(img)
             info.appendChild(h4)
           return
         }

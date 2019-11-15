@@ -24,6 +24,11 @@ canvas {
   flex-direction: column; */
   list-style: none;
 }
+
+#multirules {
+  list-style: none;
+}
+
 #sidebar {
   display: flex;
   flex-direction: column;
