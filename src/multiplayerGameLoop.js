@@ -1,5 +1,7 @@
 function multiLoop(game_mode = "2",jeff_left_pic, jeff_right_pic, ballSprite, numOfBalls, ballsSpeed, time= 24, jeff_top_pic, jeff_bottom_pic){
     let eatingAudio = new Audio('sounds/eating.m4a')
+    let gameAudio = new Audio('sounds/hungry-hungry-jeffs-track.mp3')
+    gameAudio.volume = 0.15
   
     const leftScoreBar = document.getElementById("p1scorebar")
     const rightScoreBar = document.getElementById("p2scorebar")
@@ -125,6 +127,7 @@ function multiLoop(game_mode = "2",jeff_left_pic, jeff_right_pic, ballSprite, nu
             let width  = 600
             context.canvas.height = height
             context.canvas.width = width
+            gameAudio.play()
   
             context.beginPath()
             context.fillStyle = "#dbf02c"
@@ -169,6 +172,8 @@ function multiLoop(game_mode = "2",jeff_left_pic, jeff_right_pic, ballSprite, nu
           balls = []
           time_left = 0
           info.style.display = ''
+          gameAudio.pause()
+          gameAudio.currentTime = 0
           eatingAudio.pause()
           eatingAudio.currentTime = 0
           document.removeEventListener("keydown", keyDownHandler)
